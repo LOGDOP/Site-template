@@ -200,12 +200,19 @@ window.addEventListener("DOMContentLoaded", () => {
             return await res.json();  ///Promice
         }
 
-        getResorce("http://localhost:3000/menu")
+        axios.get("http://localhost:3000/menu")
+            .then(data => {
+                data.data.forEach(({img, alt, title, descr, price}) => {
+                    new MenuCard(img, alt, title, descr, price, '.menu .container').render();
+                });
+            });
+
+       /*  getResorce("http://localhost:3000/menu")
             .then(data => {
                 data.forEach(({img, alt, title, descr, price}) => {
                     new MenuCard(img, alt, title, descr, price, '.menu .container').render();
                 });
-            });
+            }); */
 
         /////////// Forms
 
