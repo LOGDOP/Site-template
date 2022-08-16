@@ -1,3 +1,5 @@
+import {getResorce} from '../services/services';
+
 function cards() {
     /////////////////// карточки
                 
@@ -45,22 +47,9 @@ function cards() {
         }
     }
 
-    const getResorce = async (url) => {
-        const res = await fetch(url);
+    
 
-        if(!res.ok){
-            throw new Error(`Could not fetch ${url}, status ${res.status}`);
-        }
-
-        return await res.json();  ///Promice
-    };
-
-   /*  axios.get("http://localhost:3000/menu")
-        .then(data => {
-            data.data.forEach(({img, alt, title, descr, price}) => {
-                new MenuCard(img, alt, title, descr, price, '.menu .container').render();
-            });
-        }); */
+  
 
     getResorce("http://localhost:3000/menu")
         .then(data => {
@@ -71,4 +60,4 @@ function cards() {
 
 }
 
-module.exports = cards;
+export default cards;

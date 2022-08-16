@@ -1,9 +1,7 @@
-function timer() {
+function timer(id, deadline) {
     /////////////// Timer
 
-    const now = new Date();
-
-    const deadline = new Date(`${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate() + 1}`);
+    
     
     function getTimeRemaining(endtime){
         const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -53,9 +51,9 @@ function timer() {
         }
         }
 
-        setClock('.timer', deadline);
+        setClock(id, deadline);
 
         
 }
 
-module.exports = timer;
+export default timer;
